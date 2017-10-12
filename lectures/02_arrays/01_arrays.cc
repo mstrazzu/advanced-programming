@@ -1,14 +1,24 @@
 #include <cstring>
 #include <iostream>
 
+// function printing elements of an array
+
+/*
+void print (int *p, int dim){
+for (int i = 0, i < dim, ++i){
+cout << p[i];            //an array naturally decays into a pointer, so you can directily use it, without address  
+}
+}
+*/
+
 int main() {
-  int ai[4];
+  int ai[4]; // 4 = length (I can put only integers)
   float af[9];
-  ai[0] = 9;    // first element
+  ai[0] = 9;    // first element (is 0)
   af[8] = 3.3;  // last element
   ai[88] = 7;   // undefined behavior, no range checking
 
-  for (size_t k = 0; k < 4; ++k)
+  for (size_t k = 0; k < 4; ++k) // size_t = 
     std::cout << "ai[" << k << "] = " << ai[k] << '\n';
 
   std::cout << "\n-------------------------------\n\n";

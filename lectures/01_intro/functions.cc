@@ -25,7 +25,7 @@ void buggy_swap(int a, int b) {
   int tmp = b;
   b = a;
   a = tmp;
-}
+} // it does not work, because they copy the value ---> use pointers and references
 
 void swap_c(int *a, int *b) {
   int tmp = *b;

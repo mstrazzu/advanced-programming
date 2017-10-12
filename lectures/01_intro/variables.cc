@@ -41,8 +41,8 @@ int main() {
   // narrowing effect
   int var = 6.9; // try to initialize var with the universal and
                  // uniform initialization
-  // int v_narrow {6.9}; // compiler error or warning with variables
-  // int v_narrow_w {int(a+b)}; // suppress error/warning with a cast
+  //int v_narrow {6.9}; // compiler error or warning with variables
+  int v_narrow_w {int(a+b)}; // suppress error/warning with a cast
 
   std::cout << var << "\n";
 
@@ -86,8 +86,8 @@ int main() {
 
   // cast to void to suppress warning of unused variable
   (void)ve;
-  long double lpi = 3.141592653589793238462L;
-  std::cout << std::setprecision(50) << M_PI << std::endl;
+  long double lpi = 3.141592653589793238462L; // more precisions
+  std::cout << std::setprecision(50) << lpi << std::endl;
   std::cout << std::hex << 43 << std::endl;
   std::cout << std::oct << 43 << std::endl;
   std::cout << std::dec << 43 << std::endl;

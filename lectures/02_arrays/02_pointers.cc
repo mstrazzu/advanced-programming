@@ -4,22 +4,22 @@ int main() {
   int a{5};
   int* pi{&a};
   *pi = 9;
-  std::cout << "a is now " << a << std::endl;
+  std::cout << "a is now " << a << std::endl; //prints 9
 
   char** ppc;
 
-  int* ap[7];
+  int* ap[7]; // this is an array of  pointers
 
-  int (*fp)(char*);
+  int (*fp)(char*); // pointer to funtions that returns an integer and a pointer char as argument
 
-  int* f(char*);
+  int* f(char*); // function thata returns an integer if you give a pointer to a char to it
 
-  void* pv{pi};
+  void* pv{pi}; // pointer that can point to everything but it does not know the size [problems]
   // *pv; // we cannot dereference void*
   // ++pv; // we cannot increment. Why?
-  int* pi2 = static_cast<int*>(pv);
+  int* pi2 = static_cast<int*>(pv); // cast checked in compile time 
 
-  pi = nullptr;
+  pi = nullptr;   // nullptr USE IT! SO YOU REMEMBER THAT IS A POINTER!!
   ppc = nullptr;
   // ap = nullptr;			// error, why?
   fp = nullptr;

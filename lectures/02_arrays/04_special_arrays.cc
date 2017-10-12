@@ -26,7 +26,7 @@ int main() {
 
   for (int i = 0; i < 6; ++i) {
     for (int j = 0; j < 5; ++j)
-      std::cout << &ma[i][j] << " ";
+      std::cout << &ma[i][j] << " ";  // IT'S A VECTOR 
     std::cout << std::endl;
   }
 
