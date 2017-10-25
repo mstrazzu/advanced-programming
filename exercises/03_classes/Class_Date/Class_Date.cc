@@ -3,22 +3,24 @@
 using namespace std;
 enum class months { jan = 1, feb, mar, apr, may, jun, jul, aug, sep, oct, nov, dec };
 
+bool leap_control(const unsigned int y); //control if a year is leap
+void is_leap (const unsigned int y); // tells us if the year is leap
+
 class Date {
   unsigned int _day;
   unsigned _month;
   unsigned int _year;
   
   public:
-  Date ();
+ // Date ();
   Date(unsigned int day, unsigned int month, unsigned int year) : _day{day}, _month{month}, _year{year} {}
 
-  ~Date() {}
+  //~Date() {}
   unsigned int day() const { return _day; }
   unsigned int year() const { return _year; }
   unsigned int month() const { return _month; }
   void add_day(const unsigned int n); // prints the expected date 
-  bool leap_control(const unsigned int y); //control if a year is leap
-  void is_leap (const unsigned int y); // tells us if the year is leap
+  
 };
 
 void Date::add_day(const unsigned int n){
@@ -59,7 +61,7 @@ void Date::add_day(const unsigned int n){
 
 // HELPER FUNCTIONS
 
-bool Date::leap_control(const unsigned int y){
+bool leap_control(const unsigned int y){
     if ( (y%4 == 0) && (y%100 != 0)){
         return true ;
     }
@@ -71,7 +73,7 @@ bool Date::leap_control(const unsigned int y){
     }
 }
 
-void Date::is_leap(const unsigned int y){
+void is_leap(const unsigned int y){
     bool control = leap_control(y);
     if (control == true){
         cout << y << " is leap" << endl;;
@@ -93,12 +95,7 @@ bool operator==(const Date& lhs, const Date& rhs){
     };
 
 bool operator!=(const Date& lhs, const Date& rhs){
-    if ((lhs.day() != rhs.day()) || (lhs.month() != rhs.month()) || (lhs.year() != rhs.year()) ){
-    return true;
-    }
-    else{
-    return false;
-    }
+return !(lhs == rhs);
     };
     
 std::ostream& operator<<(std::ostream& os, const Date& d){
@@ -107,13 +104,13 @@ std::ostream& operator<<(std::ostream& os, const Date& d){
 
 int main(){
     months oct = months::oct;
-    Date date(23, int(oct), 2017);
+    Date date (23, int(oct), 2017);
     cout << date.day() << endl;
     cout << date.month() << endl;
     cout << date.year() << endl;
     date.add_day(465); // expected 32/1/2019
-    date.is_leap(1992); // expected is leap
-    date.is_leap(date.year()); // expected not leap
+    is_leap(1992); // expected is leap
+    is_leap(date.year()); // expected not leap
     Date other_date(22, int(oct), 2017);
     if(date == other_date){
         cout << "The two dates are the same!" << endl;
