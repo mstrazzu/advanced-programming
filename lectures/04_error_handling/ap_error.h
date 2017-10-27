@@ -7,6 +7,7 @@
 #include <stdexcept>
 #include <string>
 
+
 namespace ap {
 
   namespace internal {
@@ -27,7 +28,7 @@ namespace ap {
     error(os.str());
   }
 
-  template <typename T1, typename T2, typename... Tail>
+  template <typename T1, typename T2, typename... Tail>  //two parameters in order to avoid the calling of T1 forever above
   void error(const T1& f, const T2& s, const Tail&... rest) {
     /* std::cout << __PRETTY_FUNCTION__ << std::endl; */
     std::ostringstream os;

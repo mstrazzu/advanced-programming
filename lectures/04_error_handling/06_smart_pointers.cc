@@ -1,6 +1,6 @@
 #include <iostream>
 #include <vector>
-#include <memory>
+#include <memory> //unique pointer
 
 #include "ap_error.h"
 
